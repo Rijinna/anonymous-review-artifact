@@ -1,0 +1,248 @@
+{
+  "allowed_operational_diffs": [
+    "output_dir",
+    "checkpoint_path",
+    "CUDA_VISIBLE_DEVICES",
+    "pid",
+    "timestamp",
+    "log_path"
+  ],
+  "allowed_scientific_config_diffs": [
+    "ontology_condition",
+    "mapping_seed",
+    "ontology_view_path",
+    "ontology_view_sha256",
+    "synthetic_node_metadata"
+  ],
+  "arms": [
+    "REAL_CL",
+    "DEPTH_SHUFFLED_CL",
+    "GENERIC_STAR"
+  ],
+  "class_identity": "original real CL global classifier row remains canonical; N=3238 and learned parameters unchanged; ontology view is independent row-to-node relationship adapter",
+  "datasets": [
+    "Cao",
+    "Quake_10x",
+    "Quake_Smart-seq2",
+    "Wagner",
+    "Zeisel_2018"
+  ],
+  "deadlines": {
+    "first_summary": "2026-09-12T20:30:00+08:00",
+    "paper_ready": "2026-09-12T21:30:00+08:00",
+    "partial_does_not_cancel_remaining": true
+  },
+  "distance_strata": "nearest source CL undirected shortest path: near<=2, intermediate3..4, distant>=5; fixed before results; unmapped not evaluable",
+  "endpoints": [
+    "known_retention",
+    "retained_known_accuracy",
+    "joint_correct_known",
+    "false_novel_rate",
+    "threshold_precision",
+    "threshold_recall",
+    "threshold_f1",
+    "novelty_ap",
+    "novelty_auroc",
+    "full_prednovel_ami",
+    "full_prednovel_ari",
+    "full_prednovel_nmi",
+    "known_contamination",
+    "cluster_counts",
+    "homogeneity",
+    "completeness",
+    "fragmentation",
+    "merging",
+    "lcc_yield",
+    "assigned_cell_coverage",
+    "lineage_U"
+  ],
+  "frozen_before_formal_outcomes": true,
+  "generic_star": {
+    "dbr": "original root/self exclusion leaves no valid coarse ancestors; all coarse memberships masked zero in same N\u00d7773 interface; original DBR coefficient retained with coarse similarity 0",
+    "depths": "root0,source-leaf1,padding-1",
+    "graph": "SYNTHETIC_ROOT -> one distinct leaf per canonical source class; inactive padding to N=3238",
+    "hcl": "original >=3 shared-ancestor sampler retained; no valid positives under star, therefore zero valid relational HCL triplets",
+    "naming": "synthetic nodes are not biological lineage; native lineage correctness NA/not applicable; control is flat hierarchy, not removal of all class identity"
+  },
+  "lcc": {
+    "coverage": 0.4,
+    "min_cluster_size": 5,
+    "min_depth": 2,
+    "min_total_prednovel": 10,
+    "reuses_partition": true,
+    "sensitivity": [
+      0.25,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "temperature": 2.0,
+    "topk": 3
+  },
+  "leakage": "split authority can read labels to freeze class withholding; blind trainer opens only source_tensors and target(x,raw,sf); evaluator runs in separate process only after membership/partition/LCC/prediction manifest hashes; accesses logged",
+  "leiden": {
+    "directed": false,
+    "flavor": "igraph",
+    "n_iterations": 2,
+    "n_neighbors": 15,
+    "random_state": 0,
+    "resolution": 1.0
+  },
+  "lineage": {
+    "correctness": "ancestor-or-equal compatibility, cluster macro and cell weighted; exact deepest-common-ancestor set accuracy; undirected shortest path; over/under specificity",
+    "gt_mapping": "preexisting unique valid cell_ontology_id; else unique exact CL name/EXACT synonym; else existing Wagner alias; otherwise NOT_EVALUABLE",
+    "secondary": "same frozen partition with real and shuffled LCC; star training + real LCC diagnostic only",
+    "utility": "sum assigned * ancestry-compatible * min(1,depth(pred)/depth(truth)) / all eligible evaluable cells; root-only excluded; includes known false positives"
+  },
+  "n_runs": 60,
+  "oracle_diagnostics": "CPU only, after sealing; four cells fullPredNovel/GTNovel \u00d7 no-K Leiden/oracle true-K KMeans; frozen OverallJ only oracle diagnostic",
+  "original_protocol_sha256": "9836c9cd5bb63c2ac8a5a566f09cecffc3f86a56c5c85e089f615d285ddd0330",
+  "preprocessing": "preserve final transductive all-input expression preprocessing; source labels only train/calibrate; prepared once per dataset; exclusive cell split once per dataset\u00d7seed",
+  "real": "unchanged compiled CL release 2025-12-17; root CL:0000000; all source HCL/DBR/coarse/LCC paths use real view",
+  "retry": "No automatic scientific/config retries. For nonzero run exit preserve attempt and mark FAILED; continue other registered runs. Integrity/hash drift stops launches; interrupted run requires new attempt directory and amendment. No deletion or outcome-based stopping.",
+  "rng": {
+    "bootstrap": 9012026,
+    "calibration": "original local torch Generator model_seed + frozen CALIBRATION_SEED_OFFSET",
+    "dataloader": "separate CPU Generator cloned from exact original post-model-init CPU state, shared across loaders to preserve original batch order",
+    "leiden": 0,
+    "numpy": "model seed; mapping separate local PCG64",
+    "python": "model seed",
+    "torch_cpu": "model seed for initialization",
+    "torch_cuda": "model seed; original CUDA dropout/HCL stream preserved"
+  },
+  "scope": "TONIGHT ONLY P0 core + CPU frozen-output diagnostics; P1/P2/P3/additional permutations PAUSED",
+  "seeds": [
+    101,
+    202,
+    303,
+    404
+  ],
+  "selection": "100 optimizer epochs indexed 1..100; fixed final saved then reloaded; no target selection or early stop",
+  "shuffled": {
+    "permutation": "random circular derangement within exact-depth source stratum; singleton uses unused non-source full-CL same-depth node; root fixed; unresolved marked; local numpy Generator only",
+    "seeds": {
+      "Cao": 27101,
+      "Quake_10x": 27102,
+      "Quake_Smart-seq2": 27103,
+      "Wagner": 27104,
+      "Zeisel_2018": 27105
+    },
+    "strata": "exact shortest directed root-to-term depth"
+  },
+  "smoke": "Cao seed101 all three arms, full100 epochs, never evaluator; no smoke results pooled; smoke manifests inspected only for schema/integrity/runtime",
+  "statistics": {
+    "bootstrap": {
+      "draws": 10000,
+      "resample": "datasets then paired seeds within selected dataset",
+      "seed": 9012026
+    },
+    "exploratory_contrast": "DEPTH_SHUFFLED_CL-GENERIC_STAR",
+    "lineage_family": [
+      "lineage_U"
+    ],
+    "missing": "retain failed runs; no imputation; incomplete datasets/seed pairs flagged partial; no confirmatory-complete language from partial matrix",
+    "multiplicity": "Holm over 2 contrasts \u00d7 3 primary endpoints (6 tests); lineage family separately",
+    "primary_contrasts": [
+      "REAL_CL-DEPTH_SHUFFLED_CL",
+      "REAL_CL-GENERIC_STAR"
+    ],
+    "primary_endpoints": [
+      "joint_correct_known",
+      "novelty_ap",
+      "full_prednovel_ami"
+    ],
+    "sign_flip": "two-sided exact dataset-level sign-flip; n=5 minimal attainable p=2/32=.0625; low power; zero effects retained",
+    "unit": "dataset; seed technical replicate",
+    "verdict": "supportive only for consistently positive per-dataset key effects with CI excluding zero; mixed for opposing directions/endpoints; null if no consistent directional evidence; adverse for consistently negative. All caveats retained.",
+    "weighting": "4 paired seeds averaged within dataset then five datasets equal-weight"
+  },
+  "training": {
+    "architecture": {
+      "dropout": 0.2,
+      "hidden": 512,
+      "latent": 128
+    },
+    "batch_size": 1024,
+    "calibration": {
+      "draws": 20,
+      "epsilon": 0.05,
+      "masked_classes_per_draw": 10,
+      "post_reload_final_recalibration": true,
+      "source_only": true,
+      "training_epochs": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    },
+    "dbr": {
+      "beta": 0.3,
+      "margin": 0.05,
+      "mode": "source",
+      "start_epoch": 50,
+      "stop_epoch": 999,
+      "weight": 0.05
+    },
+    "epochs": 100,
+    "hcl": {
+      "margin": "linear 0.3 at epoch20 to 0.05 at epoch50; 0.05 thereafter",
+      "source_only": true,
+      "start_epoch": 20,
+      "weight": 0.1,
+      "weight_decay_disabled_before_end": true
+    },
+    "hvg": 2000,
+    "lr_schedule": {
+      "base_lr": 0.001,
+      "horizon_epochs": 100,
+      "min_lr": 1e-05,
+      "name": "cosine"
+    },
+    "novel_separation": {
+      "margin": 0.1,
+      "start_epoch": 60,
+      "temperature": 5.0,
+      "uses_source_calibrated_alpha": true,
+      "uses_target_labels": false,
+      "weight": 0.01
+    },
+    "protocol_profile": "paper_primary",
+    "reconstruction_weight": {
+      "epochs_1_to_49": 1.0,
+      "epochs_50_to_79": 0.5,
+      "epochs_80_to_100": "linear 0.5 to 0.0"
+    },
+    "selection": {
+      "checkpoint_role": "primary_final",
+      "posthoc_oracle_diagnostic": false,
+      "primary": "fixed_final_epoch_100",
+      "reload_before_post_final_scoring": true,
+      "save_before_target_scoring": true,
+      "target_metric_checkpoint_selection": false
+    },
+    "snapshots": {
+      "prespecified_nonprimary_epochs": [
+        60,
+        70,
+        80,
+        90
+      ],
+      "target_metrics_at_snapshot_save": false
+    },
+    "target_gt_available_to_training": false,
+    "target_hcl_weight": 0.0,
+    "target_side_hyperparameter_tuning": false,
+    "target_training_tensor_schema": [
+      "x",
+      "raw_x",
+      "size_factor"
+    ],
+    "tnc_weight": 0.0,
+    "zinb": true
+  },
+  "version": "nar_final_extension_v1"
+}

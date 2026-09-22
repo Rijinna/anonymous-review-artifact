@@ -1,0 +1,14 @@
+anndata==0.10.8
+h5py==3.14.0
+leidenalg==0.11.0
+matplotlib==3.9.2
+numpy==1.26.4
+obonet==1.1.1
+pandas==2.3.3
+python-igraph==1.0.0
+scanpy==1.10.3
+scikit-learn==1.6.1
+scipy==1.13.1
+torch==2.8.0
+threadpoolctl==3.5.0
+tqdm==4.67.1
